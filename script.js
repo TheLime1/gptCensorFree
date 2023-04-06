@@ -1,38 +1,51 @@
-const openai = require("openai-api");
-const api_key = "YOUR_API_KEY";
-
-const chatbot = new openai(api_key);
+const chatbox = document.getElementById("chatbox");
+const messageInput = document.getElementById("message");
 
 function sendMessage() {
-  let inputMessage = document.getElementById("input-message").value;
+  const message = messageInput.value.trim();
 
-  // Append user message to chat body
-  let chatBody = document.getElementById("chat-body");
-  let userMessage = document.createElement("div");
-  userMessage.classList.add("chat-message", "user-message");
-  userMessage.innerHTML = "<p>" + inputMessage + "</p>";
-  chatBody.appendChild(userMessage);
+  if (message === "") {
+    return;
+  }
 
-  // Send message to ChatGPT API
-  chatbot
-    .complete({
-      engine: "davinci",
-      prompt: inputMessage,
-      maxTokens: 150,
-      n: 1,
-      stop: "\n",
-    })
-    .then((response) => {
-      let outputMessage = response.choices[0].text.trim();
+  // create new message element
+  const messageEl = document.createElement("div");
+  messageEl.classList.add("message", "user");
+  messageEl.textContent = message;
 
-      // Append bot message to chat body
-      let botMessage = document.createElement("div");
-      botMessage.classList.add("chat-message", "bot-message");
-      botMessage.innerHTML = "<p>" + outputMessage + "</p>";
-      chatBody.appendChild(botMessage);
+  // append message element to chatbox
+  chatbox.appendChild(messageEl);
 
-      // Clear input field
-      document.getElementById("input-message").value = "";
-    })
-    .catch((error) => console.error(error));
+  // send message to chatbot API
+  fetch("http://localhost:5000/chatbot", {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json",
+    },
+    body: JSON.stringify({ input_message: message }),
+  })
+    .then((response) => response.json())
+    .then((data) => {
+      // create new message element for response
+      const responseEl = document.createElement("div");
+      responseEl.classList.add("message", "bot");
+      responseEl.textContent = data.response;
+
+      // append message element to chatbox
+      chatbox.appendChild(responseEl);
+
+      // scroll chatbox to bottom
+      chatbox.scrollTop = chatbox.scrollHeight;
+    });
+
+  // clear message input
+  messageInput.value = "";
 }
+
+// send message on pressing enter key
+messageInput.addEventListener("keydown", (event) => {
+  if (event.key === "Enter" && !event.shiftKey) {
+    event.preventDefault();
+    sendMessage();
+  }
+});
