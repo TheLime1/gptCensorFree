@@ -1,0 +1,2 @@
+pip3 install poe-api
+pip install Flask
