@@ -1,0 +1,3 @@
+pip3 install poe-api
+pip install Flask
+pip install flask_cors
