@@ -24,6 +24,9 @@ def chatbot():
     # get user input from request data
     input_message = request.json.get("input_message")
 
+    # print the sent message in the terminal for debugging
+    print("\nSent message: ", input_message)
+
     # initialize POE client with token
     token = "CmpguqkTtuqLZh5w1XeRGw%3D%3D"
     client = poe.Client(token)
@@ -34,6 +37,9 @@ def chatbot():
     # stream the response from POE client
     for chunk in client.send_message("capybara", input_message, with_chat_break=True):
         response += chunk["text_new"]
+
+    # print the received response in the terminal for debugging
+    print("Received response: ", response, "\n")
 
     # return response as JSON
     return jsonify({"response": response})
