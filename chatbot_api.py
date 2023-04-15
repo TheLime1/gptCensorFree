@@ -1,4 +1,4 @@
-from flask import Flask, render_template, url_for, request
+from flask import Flask, render_template, url_for, request, jsonify
 
 app = Flask(__name__)
 
@@ -25,7 +25,7 @@ def chatbot():
     input_message = request.json.get("input_message")
 
     # initialize POE client with token
-    token = "_RBIVWQgvLaz992Chql45Q%3D%3D"
+    token = "CmpguqkTtuqLZh5w1XeRGw%3D%3D"
     client = poe.Client(token)
 
     # initialize response
