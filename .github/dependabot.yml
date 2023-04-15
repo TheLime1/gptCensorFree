@@ -4,7 +4,22 @@ updates:
     directory: "/"
     schedule:
       interval: "daily"
-    allow:
-      - dependency-name: "poe-api"
-        update-type: "all"
-        version-range: ">=0.2.10"
+    update:
+      - package: "poe-api"
+        # Only update to patch or minor versions, not major versions.
+        # This can help avoid breaking changes.
+        # Change "minor" to "patch" if you only want to update patch versions.
+        # See https://docs.github.com/en/code-security/supply-chain-security/keeping-your-dependencies-updated-automatically/configuration-options-for-dependency-updates#specifying-the-version-range-for-dependencies
+        # for more information on version ranges.
+        versions: ">=0.2.10, <0.3.0"
+    # Create a pull request with the updated requirements.txt file.
+    # You can customize the branch name and commit message as needed.
+    # See https://docs.github.com/en/code-security/supply-chain-security/keeping-your-dependencies-updated-automatically/configuration-options-for-dependency-updates#opening-a-pull-request for more information on pull request options.
+    # Note that this requires write access to the repository.
+    # If you don't have write access, you can set "automerge: false" to have the pull request reviewed and merged manually.
+    # See https://docs.github.com/en/code-security/supply-chain-security/keeping-your-dependencies-updated-automatically/configuration-options-for-dependency-updates#receiving-pull-requests-for-dependency-updates for more information on receiving pull requests.
+    pull-request:
+      branch-name: "dependabot/pip/{{name}}"
+      title: "Update {{dependency}} to {{version}}"
+      body: |
+        Updates {{dependency}} to version {{version}}.
