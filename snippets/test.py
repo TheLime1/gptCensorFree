@@ -4,7 +4,7 @@ import sys
 
 # send a message and stream the response
 
-token = "WqZa9Ic0mCEpffDgYSG-QA%3D%3D"
+token = ""  # cookie token
 client = poe.Client(token)
 
 message = input("type your message here\n")
