@@ -30,7 +30,8 @@ def chatbot():
     print("\nSent message: ", input_message)
 
     # initialize POE client with token
-    token = "FSOhBeX02qh5KYY8DADFCg%3D%3D"
+    with open('token.txt', 'r') as f:  # put your token in token.txt
+        token = f.read().rstrip()
     client = poe.Client(token)
 
     # initialize response
