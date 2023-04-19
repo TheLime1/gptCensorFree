@@ -1,3 +1,1 @@
-poe-api==x.x.x
-flask
-flask_cors
+poe-api==0.0.1
