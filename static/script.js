@@ -1,6 +1,9 @@
 const chatbox = document.getElementById("chatbox");
 const messageInput = document.getElementById("message");
 
+// create a Showdown converter object
+const converter = new showdown.Converter();
+
 function sendMessage() {
   const message = messageInput.value.trim();
 
@@ -8,10 +11,13 @@ function sendMessage() {
     return;
   }
 
+  // convert message from markdown to HTML
+  const htmlMessage = converter.makeHtml(message);
+
   // create new message element
   const messageEl = document.createElement("div");
   messageEl.classList.add("message", "user");
-  messageEl.textContent = message;
+  messageEl.innerHTML = htmlMessage; // use innerHTML instead of textContent to display the HTML content
 
   // append message element to chatbox
   chatbox.appendChild(messageEl);
@@ -26,10 +32,13 @@ function sendMessage() {
   })
     .then((response) => response.json())
     .then((data) => {
+      // convert response from markdown to HTML
+      const htmlResponse = converter.makeHtml(data.response);
+
       // create new message element for response
       const responseEl = document.createElement("div");
       responseEl.classList.add("message", "bot");
-      responseEl.textContent = data.response;
+      responseEl.innerHTML = htmlResponse; // use innerHTML instead of textContent to display the HTML content
 
       // append message element to chatbox
       chatbox.appendChild(responseEl);
