@@ -152,3 +152,28 @@ body.dark-mode {
     color: #87CEFA;
     /* a lighter shade of blue */
 }
+
+.sidebar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 150px;
+    height: 100%;
+    background-color: #f2f2f2;
+}
+
+.sidebar button {
+    display: block;
+    width: 100%;
+    padding: 10px;
+    border: none;
+    text-align: left;
+    font-size: 16px;
+    color: #000;
+    background-color: #f2f2f2;
+    cursor: pointer;
+}
+
+.sidebar button:hover {
+    background-color: #ddd;
+}
