@@ -155,11 +155,12 @@ body.dark-mode {
 
 .sidebar {
     position: fixed;
-    top: 0;
-    left: 0;
-    width: 150px;
-    height: 100%;
-    background-color: #f2f2f2;
+    top: 50%;
+    left: 20px;
+    transform: translateY(-50%);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
 }
 
 .sidebar button {
@@ -172,8 +173,12 @@ body.dark-mode {
     color: #000;
     background-color: #f2f2f2;
     cursor: pointer;
+    transition: background-color 0.3s ease-in-out;
+    margin: 20px 0;
+    border-radius: 20px;
 }
 
 .sidebar button:hover {
-    background-color: #ddd;
+    background-color: #4CAF50;
+    color: #fff;
 }
