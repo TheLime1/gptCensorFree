@@ -1,7 +1,7 @@
 version: 2
 updates:
   - package-ecosystem: pip
-    directory: "/"
+    directory: "requirements.txt"
     schedule:
       interval: daily
     open-pull-requests-limit: 10
@@ -9,8 +9,7 @@ updates:
     assignees:
       - thelime1
     versioning-strategy: increase
-    allow:
-      - dependency-name: "poe-api"
-        update-types: ["version"]
     commit-message:
       prefix: "build"
+    filters:
+      - package: poe-api
