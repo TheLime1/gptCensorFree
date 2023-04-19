@@ -9,11 +9,8 @@ updates:
     assignees:
       - thelime1
     versioning-strategy: increase
+    allow:
+      - dependency-name: "poe-api"
+        update-types: ["version"]
     commit-message:
       prefix: "build"
-# Remove the following props to fix errors
-#    pull-request-body: |
-#      This PR updates the `poe-api` package to the latest version.
-#    label:
-#      - "pip updates"
-#    update-schedule: "live"
