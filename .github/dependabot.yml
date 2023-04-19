@@ -5,11 +5,10 @@ updates:
     schedule:
       interval: daily
     open-pull-requests-limit: 10
-    target-branch: main
+    target-branch: dev
     assignees:
       - thelime1
     versioning-strategy: increase
     commit-message:
       prefix: "build"
-    filters:
-      - package: poe-api
+    regex-filter: poe-api
