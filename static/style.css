@@ -17,7 +17,7 @@ body {
 }
 
 .container {
-    max-width: 1000px;
+    max-width: 1400px;
     margin: 0 auto;
     padding: 20px;
     background-color: #fff;
@@ -89,4 +89,66 @@ footer p {
     .container {
         max-width: 400px;
     }
+}
+
+#dark-mode-toggle {
+    position: fixed;
+    bottom: 20px;
+    left: 20px;
+    background-color: #fff;
+    color: #333;
+    border: none;
+    border-radius: 50px;
+    padding: 10px 20px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+    cursor: pointer;
+    transition: all 0.3s ease-in-out;
+}
+
+.dark-mode-toggle:hover {
+    background-color: #333;
+    color: #f1f1f1;
+}
+
+.dark-mode .title {
+    color: #f1f1f1;
+}
+
+body.dark-mode {
+    background-color: #333;
+    color: #fff;
+}
+
+.dark-mode .message.bot {
+    color: #f1f1f1;
+    background-color: #333;
+}
+
+.dark-mode footer p {
+    font-size: 14px;
+    color: #f1f1f1;
+}
+
+.dark-mode .container {
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 20px;
+    background-color: #333;
+    box-shadow: 0 0 10px rgba(255, 255, 255, 0.3);
+    border-radius: 10px;
+}
+
+.dark-mode .chatbox {
+    height: 400px;
+    width: 100%;
+    border: 1px solid #333;
+    overflow-y: scroll;
+    padding: 10px;
+    background-color: #222;
+    color: #f1f1f1;
+}
+
+.dark-mode .user {
+    color: #87CEFA;
+    /* a lighter shade of blue */
 }

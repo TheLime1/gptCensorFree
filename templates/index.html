@@ -2,8 +2,10 @@
 <html>
   <head>
     <title>GPT Censor Free</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/showdown/1.9.1/showdown.min.js"></script>
     <link rel="stylesheet" href="../static/style.css" />
-    <link rel="icon" href="icon.ico"/><!-- make it circular -->
+    <link rel="icon" href="{{ url_for('static', filename='icon.ico') }}" />
+    <!-- make it circular -->
   </head>
   <body>
     <h1 class="title">GPT Censor Free</h1>
@@ -21,8 +23,9 @@
       </div>
     </div>
     <footer>
-      <p>Made by Aymen Hmani (Lime1) 🍋</p>
+      <p class="author">Made by Aymen Hmani (Lime1) 🍋</p>
     </footer>
+    <button id="dark-mode-toggle">Toggle Dark Mode</button>
     <script src="../static/script.js"></script>
   </body>
 </html>
