@@ -1,6 +1,10 @@
 # gptCensorFree
 simple web-based chatbot application powered by POE
 
+# How to run locally
+- run `python chatbot.py` in the terminal
+- type `localhost:5000` in the browser
+
 ## To-Do List
 - [ ] Add more AI chat bots
 - [ ] Add a dark mode

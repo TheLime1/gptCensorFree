@@ -1,11 +1,21 @@
 version: 2
 updates:
-  - package-ecosystem: "pip"
+  - package-ecosystem: pip
     directory: "/"
     schedule:
-      interval: "daily"
-    open-pull-requests-limit: 2
-    allow:
-      - dependency-name: "poe-api"
-    update-types:
-      - waste
+      interval: daily
+    open-pull-requests-limit: 10
+    target-branch: main
+    assignees:
+      - thelime1
+    versioning-strategy: increase
+    ignore:
+      - dependency-name* # Exclude updates to packages whose name starts with "dependency-name"
+    commit-message:
+      prefix: "build"
+    pull-request-body: |
+      This PR updates the `poe-api` package to the latest version.
+    rebase-strategy: disabled # Handle merge conflicts on your own
+    label:
+      - "pip updates" # Label to apply to PRs created by this config
+    update-schedule: "live" # Review & upgrade dependencies daily
