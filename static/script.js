@@ -4,6 +4,9 @@ const messageInput = document.getElementById("message");
 // create a Showdown converter object
 const converter = new showdown.Converter();
 
+const darkModeToggle = document.getElementById("dark-mode-toggle");
+darkModeToggle.addEventListener("click", toggleDarkMode);
+
 function sendMessage() {
   const message = messageInput.value.trim();
 
@@ -58,3 +61,8 @@ messageInput.addEventListener("keydown", (event) => {
     sendMessage();
   }
 });
+
+function toggleDarkMode() {
+  const body = document.body;
+  body.classList.toggle("dark-mode");
+}
