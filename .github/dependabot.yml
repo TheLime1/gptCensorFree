@@ -5,7 +5,7 @@ updates:
     schedule:
       interval: daily
     open-pull-requests-limit: 10
-    target-branch: dev
+    target-branch: main
     assignees:
       - thelime1
     versioning-strategy: increase
