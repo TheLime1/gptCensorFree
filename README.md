@@ -2,6 +2,7 @@
 simple web-based chatbot application powered by POE
 
 # How to run locally
+- run `pip install -r requirements.txt` in the terminal
 - run `python chatbot.py` in the terminal
 - type `localhost:5000` in the browser
 
