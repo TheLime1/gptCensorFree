@@ -35,8 +35,9 @@
         "dark-mode-div author-div .";
 }
 /*end of external divs*/
-* {
+* { /*<html>*/
     box-sizing: border-box;
+    overflow: hidden;
 }
 
 body {
@@ -58,7 +59,6 @@ body {
     margin: 0 auto;
     padding: 20px;
     background-color: #fff;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
     border-radius: 10px;
 }
 
@@ -98,7 +98,9 @@ body {
     border: none;
     resize: none;
     min-height: 60px;
+    max-height: 94px;
     height: 60px;
+    overflow: auto;
 }
 
 .input-container textarea:focus {
@@ -222,8 +224,7 @@ body.dark-mode {
     max-width: 1400px;
     margin: 0 auto;
     padding: 20px;
-    background-color: #333;
-    box-shadow: 0 0 10px rgba(255, 255, 255, 0.3);
+    background-color: #ffffff14;
     border-radius: 10px;
 }
 
@@ -240,4 +241,19 @@ body.dark-mode {
 .dark-mode .user {
     color: #87CEFA;
     /* a lighter shade of blue */
+}
+
+.dark-mode .input-container textarea {
+    flex: 1;
+    padding: 10px;
+    font-size: 16px;
+    border-radius: 5px;
+    border: none;
+    resize: none;
+    min-height: 60px;
+    max-height: 94px;
+    height: 60px;
+    background-color: #333;
+    color: #fff;
+    overflow: auto;
 }
