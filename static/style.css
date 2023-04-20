@@ -1,3 +1,40 @@
+/*external divs*/
+.title-div {
+    grid-area: title-div;
+}
+
+.bots-div {
+    grid-area: bots-div;
+}
+
+.dark-mode-div {
+    grid-area: dark-mode-div;
+}
+
+.censor-toggle-div {
+    grid-area: censor-toggle-div;
+}
+
+.chatbox-div {
+    grid-area: chatbox-div;
+}
+
+.author-div {
+    grid-area: author-div;
+}
+
+.container-div {
+    display: grid;
+    grid-template-columns: 0.5fr 2.2fr 0.3fr;
+    grid-template-rows: 0.6fr 2.1fr 0.3fr;
+    gap: 0px 0px;
+    grid-auto-flow: row;
+    grid-template-areas:
+        "title-div title-div title-div"
+        "bots-div chatbox-div censor-toggle-div"
+        "dark-mode-div author-div .";
+}
+/*end of external divs*/
 * {
     box-sizing: border-box;
 }
@@ -75,7 +112,7 @@ body {
     }
 }
 
-.input-container input { /* button */
+.input-container input { /* send button */
     flex: 1;
     padding: 10px;
     font-size: 16px;
@@ -107,13 +144,43 @@ footer p {
     color: #666;
 }
 
+.sidebar {
+    position: fixed;
+    top: 50%;
+    left: 20px;
+    transform: translateY(-50%);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.sidebar button {
+    display: block;
+    width: 100%;
+    padding: 20px;
+    border: none;
+    text-align: center;
+    font-size: 16px;
+    color: #000;
+    background-color: #f2f2f2;
+    cursor: pointer;
+    transition: background-color 0.3s ease-in-out;
+    margin: 20px 0;
+    border-radius: 20px;
+}
+
+.sidebar button:hover {
+    background-color: #4CAF50;
+    color: #fff;
+}
+
 @media (max-width: 768px) {
     .container {
         max-width: 400px;
     }
 }
 
-#dark-mode-toggle {
+#dark-mode-toggle { /* dark mode toggle button */
     position: fixed;
     bottom: 20px;
     left: 20px;
@@ -131,7 +198,7 @@ footer p {
     background-color: #333;
     color: #f1f1f1;
 }
-
+/* dark mode styles */
 .dark-mode .title {
     color: #f1f1f1;
 }
@@ -173,70 +240,4 @@ body.dark-mode {
 .dark-mode .user {
     color: #87CEFA;
     /* a lighter shade of blue */
-}
-
-.sidebar {
-    position: fixed;
-    top: 50%;
-    left: 20px;
-    transform: translateY(-50%);
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-}
-
-.sidebar button {
-    display: block;
-    width: 100%;
-    padding: 20px;
-    border: none;
-    text-align: center;
-    font-size: 16px;
-    color: #000;
-    background-color: #f2f2f2;
-    cursor: pointer;
-    transition: background-color 0.3s ease-in-out;
-    margin: 20px 0;
-    border-radius: 20px;
-}
-
-.sidebar button:hover {
-    background-color: #4CAF50;
-    color: #fff;
-}
-
-.container-div {
-    display: grid;
-    grid-template-columns: 0.5fr 2.2fr 0.3fr;
-    grid-template-rows: 0.6fr 2.1fr 0.3fr;
-    gap: 0px 0px;
-    grid-auto-flow: row;
-    grid-template-areas:
-        "title-div title-div title-div"
-        "bots-div chatbox-div censor-toggle-div"
-        "dark-mode-div author-div .";
-}
-
-.title-div {
-    grid-area: title-div;
-}
-
-.bots-div {
-    grid-area: bots-div;
-}
-
-.dark-mode-div {
-    grid-area: dark-mode-div;
-}
-
-.censor-toggle-div {
-    grid-area: censor-toggle-div;
-}
-
-.chatbox-div {
-    grid-area: chatbox-div;
-}
-
-.author-div {
-    grid-area: author-div;
 }
