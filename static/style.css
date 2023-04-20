@@ -204,3 +204,39 @@ body.dark-mode {
     background-color: #4CAF50;
     color: #fff;
 }
+
+.container-div {
+    display: grid;
+    grid-template-columns: 0.5fr 2.2fr 0.3fr;
+    grid-template-rows: 0.6fr 2.1fr 0.3fr;
+    gap: 0px 0px;
+    grid-auto-flow: row;
+    grid-template-areas:
+        "title-div title-div title-div"
+        "bots-div chatbox-div censor-toggle-div"
+        "dark-mode-div author-div .";
+}
+
+.title-div {
+    grid-area: title-div;
+}
+
+.bots-div {
+    grid-area: bots-div;
+}
+
+.dark-mode-div {
+    grid-area: dark-mode-div;
+}
+
+.censor-toggle-div {
+    grid-area: censor-toggle-div;
+}
+
+.chatbox-div {
+    grid-area: chatbox-div;
+}
+
+.author-div {
+    grid-area: author-div;
+}
