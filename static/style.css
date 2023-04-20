@@ -53,7 +53,29 @@ body {
     display: flex;
 }
 
-.input-container input {
+.input-container textarea {
+    flex: 1;
+    padding: 10px;
+    font-size: 16px;
+    border-radius: 5px;
+    border: none;
+    resize: none;
+    min-height: 60px;
+    height: 60px;
+}
+
+.input-container textarea:focus {
+    outline: none;
+}
+
+@media screen and (max-width: 768px) {
+    .input-container textarea {
+        min-height: 40px;
+        height: 40px;
+    }
+}
+
+.input-container input { /* button */
     flex: 1;
     padding: 10px;
     font-size: 16px;
@@ -166,9 +188,9 @@ body.dark-mode {
 .sidebar button {
     display: block;
     width: 100%;
-    padding: 10px;
+    padding: 20px;
     border: none;
-    text-align: left;
+    text-align: center;
     font-size: 16px;
     color: #000;
     background-color: #f2f2f2;
