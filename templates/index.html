@@ -8,24 +8,39 @@
     <!-- make it circular -->
   </head>
   <body>
-    <h1 class="title">GPT Censor Free</h1>
-    <div class="container">
-      <div class="chatbox" id="chatbox">
-        <div class="message bot">Hi, how can I help you?</div>
+    <div class="container-div">
+      <div class="title-div"><h1 class="title">GPT Censor Free</h1></div>
+      <div class="bots-div">
+        <div class="sidebar">
+          <button onclick="sage()">Sage</button>
+          <button onclick="gpt4()">GPT4</button>
+          <button onclick="limebot()">Limebot</button>
+        </div>
       </div>
-      <div class="input-container">
-        <input
-          type="text"
-          id="message"
-          placeholder="Type your message here..."
-        />
-        <button onclick="sendMessage()">Send</button>
+      <div class="dark-mode-div">
+        <button id="dark-mode-toggle">Toggle Dark Mode</button>
+      </div>
+      <div class="censor-toggle-div"><!--SOON--></div>
+      <div class="chatbox-div">
+        <div class="container">
+          <div class="chatbox" id="chatbox">
+            <div class="message bot">Hi, how can I help you?</div>
+          </div>
+          <div class="input-container">
+            <textarea
+              id="message"
+              placeholder="Type your message here..."
+            ></textarea>
+            <button onclick="sendMessage()">Send</button>
+          </div>
+        </div>
+      </div>
+      <div class="author-div">
+        <footer>
+          <p class="author">Made by Aymen Hmani (Lime1) 🍋</p>
+        </footer>
       </div>
     </div>
-    <footer>
-      <p class="author">Made by Aymen Hmani (Lime1) 🍋</p>
-    </footer>
-    <button id="dark-mode-toggle">Toggle Dark Mode</button>
     <script src="../static/script.js"></script>
   </body>
 </html>

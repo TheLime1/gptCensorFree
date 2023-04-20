@@ -7,6 +7,8 @@ const converter = new showdown.Converter();
 const darkModeToggle = document.getElementById("dark-mode-toggle");
 darkModeToggle.addEventListener("click", toggleDarkMode);
 
+const textarea = document.getElementById("message");
+
 function sendMessage() {
   const message = messageInput.value.trim();
 
@@ -66,3 +68,8 @@ function toggleDarkMode() {
   const body = document.body;
   body.classList.toggle("dark-mode");
 }
+
+textarea.addEventListener("input", () => {
+  textarea.style.height = "60px";
+  textarea.style.height = `${textarea.scrollHeight}px`;
+});
