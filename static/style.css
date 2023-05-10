@@ -4,6 +4,15 @@
     color: #ffffff
 }
 
+html,
+body {
+    height: 100%;
+}
+
+.full-height-div {
+    height: 100%;
+}
+
 /*external divs*/
 .title-div {
     grid-area: title-div;
@@ -30,6 +39,11 @@
 }
 
 .container-div {
+    height: 100%;
+    max-width: 1200px;
+    /* for example */
+    margin: 0 auto;
+    /* center the container horizontally */
     display: grid;
     grid-template-columns: 0.5fr 2.2fr 0.3fr;
     grid-template-rows: 0.6fr 2.1fr 0.3fr;
@@ -189,8 +203,9 @@ footer p {
 }
 
 #dark-mode-toggle { /* dark mode toggle button */
-    margin-top: 30px;
-    margin-left: 20px;
+    position: absolute;
+    bottom: 30px;
+    left: 20px;
     background-color: #fff;
     color: #333;
     border: none;
