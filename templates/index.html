@@ -2,10 +2,16 @@
 <html>
   <head>
     <title>GPT Censor Free</title>
+    <link
+      rel="stylesheet"
+      href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/11.2.0/styles/default.min.css"
+    />
+    <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/11.2.0/highlight.min.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.8/clipboard.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/showdown/1.9.1/showdown.min.js"></script>
+    <!-- local -->
     <link rel="stylesheet" href="../static/style.css" />
     <link rel="icon" href="{{ url_for('static', filename='icon.ico') }}" />
-    <!-- make it circular -->
   </head>
   <body>
     <div class="container-div">
@@ -13,8 +19,7 @@
       <div class="bots-div">
         <div class="sidebar">
           <button onclick="sage()">Sage</button>
-          <button onclick="gpt4()">GPT4</button>
-          <button onclick="limebot()">Limebot</button>
+          <button onclick="gpt()">gpt 3.5 turbo</button>
         </div>
       </div>
       <div class="dark-mode-div">
