@@ -16,8 +16,19 @@ function sendMessage() {
     return;
   }
 
+  // apply syntax highlighting to code blocks
+  const highlightedMessage = message.replace(
+    /```(\w+)?([\s\S]*?)```/g,
+    (match, p1, p2) => {
+      if (p1) {
+        return `<pre><code class="language-${p1}">${p2.trim()}</code></pre>`;
+      }
+      return `<pre><code>${p2.trim()}</code></pre>`;
+    }
+  );
+
   // convert message from markdown to HTML
-  const htmlMessage = converter.makeHtml(message);
+  const htmlMessage = converter.makeHtml(highlightedMessage);
 
   // create new message element
   const messageEl = document.createElement("div");
@@ -44,6 +55,19 @@ function sendMessage() {
       const responseEl = document.createElement("div");
       responseEl.classList.add("message", "bot");
       responseEl.innerHTML = htmlResponse; // use innerHTML instead of textContent to display the HTML content
+
+      // handle code blocks in the response
+      const responseCodeBlocks = responseEl.querySelectorAll("pre code");
+      responseCodeBlocks.forEach((block) => {
+        hljs.highlightBlock(block); // apply syntax highlighting
+        const copyButton = document.createElement("button"); // create a copy button
+        copyButton.classList.add("copy-button");
+        copyButton.textContent = "Copy";
+        copyButton.addEventListener("click", () => {
+          navigator.clipboard.writeText(block.textContent.trim()); // copy the code to clipboard
+        });
+        block.parentNode.insertBefore(copyButton, block); // insert the button before the code block
+      });
 
       // append message element to chatbox
       chatbox.appendChild(responseEl);

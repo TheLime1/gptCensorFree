@@ -1,3 +1,18 @@
+/*to overwrite the markdown styles*/
+.hljs {
+    background: #181818;
+    color: #ffffff
+}
+
+html,
+body {
+    height: 100%;
+}
+
+.full-height-div {
+    height: 100%;
+}
+
 /*external divs*/
 .title-div {
     grid-area: title-div;
@@ -24,6 +39,11 @@
 }
 
 .container-div {
+    height: 100%;
+    max-width: 1200px;
+    /* for example */
+    margin: 0 auto;
+    /* center the container horizontally */
     display: grid;
     grid-template-columns: 0.5fr 2.2fr 0.3fr;
     grid-template-rows: 0.6fr 2.1fr 0.3fr;
@@ -183,8 +203,8 @@ footer p {
 }
 
 #dark-mode-toggle { /* dark mode toggle button */
-    position: fixed;
-    bottom: 20px;
+    position: absolute;
+    bottom: 30px;
     left: 20px;
     background-color: #fff;
     color: #333;
@@ -256,4 +276,70 @@ body.dark-mode {
     background-color: #333;
     color: #fff;
     overflow: auto;
+}
+
+/* code box styles */
+pre {
+    background-color: #282c34;
+    border-radius: 5px;
+    color: #abb2bf;
+    font-family: 'Fira Mono', monospace;
+    font-size: 14px;
+    font-weight: 400;
+    letter-spacing: 0.025em;
+    margin: 10px 0;
+    overflow: auto;
+    padding: 10px 40px 10px 10px;
+    position: relative;
+    white-space: pre-wrap;
+    word-wrap: break-word;
+    padding-right: 10px;
+}
+
+pre code {
+    background-color: #282c34;
+    border-radius: 5px;
+    color: #abb2bf;
+    display: block;
+    font-family: 'Fira Mono', monospace;
+    font-size: 14px;
+    font-weight: 400;
+    margin: 0;
+    padding: 0;
+    white-space: pre-wrap;
+    word-wrap: break-word;
+}
+
+/* text selection styles */
+::-moz-selection {
+    background-color: #b3d4fc;
+    text-shadow: none;
+}
+
+::selection {
+    background-color: #b3d4fc;
+    text-shadow: none;
+}
+
+.copy-button {
+    background-color: #4CAF50;
+    border: none;
+    color: #fff;
+    cursor: pointer;
+    font-size: 12px;
+    padding: 5px 10px;
+    position: absolute;
+    right: 10px;
+    top: 10px;
+    border-radius: 5px;
+    margin-right: 10px;
+    margin-top: 10px;
+}
+
+.copy-button:hover {
+    background-color: #0069d9;
+}
+
+.copy-button:active {
+    background-color: #0053a3;
 }
