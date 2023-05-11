@@ -1,3 +1,10 @@
+function initialize() {
+  activateButton(sageButton);
+  deactivateButton(gptButton);
+}
+
+window.onload = initialize;
+
 const chatbox = document.getElementById("chatbox");
 const messageInput = document.getElementById("message");
 
