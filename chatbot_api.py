@@ -4,6 +4,9 @@ from flask_cors import CORS  # import CORS module
 app = Flask(__name__)
 CORS(app)  # enable CORS
 
+sage = "capybara"
+gpt = "chinchilla"
+
 
 @app.route("/")
 def index():
@@ -38,7 +41,7 @@ def chatbot():
     response = ""
 
     # stream the response from POE client
-    for chunk in client.send_message("capybara", input_message, with_chat_break=True):
+    for chunk in client.send_message(sage, input_message, with_chat_break=True):
         response += chunk["text_new"]
 
     # print the received response in the terminal for debugging

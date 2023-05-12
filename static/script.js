@@ -1,3 +1,10 @@
+function initialize() {
+  activateButton(sageButton);
+  deactivateButton(gptButton);
+}
+
+window.onload = initialize;
+
 const chatbox = document.getElementById("chatbox");
 const messageInput = document.getElementById("message");
 
@@ -8,6 +15,26 @@ const darkModeToggle = document.getElementById("dark-mode-toggle");
 darkModeToggle.addEventListener("click", toggleDarkMode);
 
 const textarea = document.getElementById("message");
+
+const sageButton = document.getElementById("sage-button");
+sageButton.addEventListener("click", () => {
+  activateButton(sageButton);
+  deactivateButton(gptButton);
+});
+
+const gptButton = document.getElementById("gpt-button");
+gptButton.addEventListener("click", () => {
+  activateButton(gptButton);
+  deactivateButton(sageButton);
+});
+
+function activateButton(button) {
+  button.classList.add("active");
+}
+
+function deactivateButton(button) {
+  button.classList.remove("active");
+}
 
 function sendMessage() {
   const message = messageInput.value.trim();
