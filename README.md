@@ -1,6 +1,8 @@
 # gptCensorFree
 simple web-based chatbot application powered by POE
 
+Check the CLI version : https://github.com/TheLime1/gpt-cli
+
 # How to run locally
 - run `pip install -r requirements.txt` in the terminal
 - run `python token_gen.py` to get a token
